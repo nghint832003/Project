@@ -10,12 +10,12 @@ if(is_array($product)){
         <div class="form-group">
             <label class="col-md-4 control-label">Mã sản phẩm</label>
             <div class="col-md-4">
-                <input class="form-control input-md"  name="id_product" value="<?php if(isset($id_product)&&($id_product>0)) echo $id_product ;?>">
+                <input class="form-control input-md" required  name="id_product" value="<?php if(isset($id_product)&&($id_product>0)) echo $id_product ;?>">
             </div>
 
             <label class="col-md-4 control-label" >Tên sản phẩm</label>
             <div class="col-md-4">
-                <input class="form-control input-md" type="text" name="name_product" value="<?php if(isset($name_product)&&($name_product!="")) echo $name_product ;?>">
+                <input class="form-control input-md" required type="text" name="name_product" value="<?php if(isset($name_product)&&($name_product!="")) echo $name_product ;?>">
             </div>
 
             <label class="col-md-4 control-label" >Mã loại</label>
@@ -31,32 +31,32 @@ if(is_array($product)){
 
             <label class="col-md-4 control-label" >Ảnh 1</label>
             <div class="col-md-4">
-                <input class="form-control input-md" name="pic1" value="<?php if(isset($pic1)&&($pic1!="")) echo $pic1 ;?>" class="form-control input-md" type="file">
+                <input class="form-control input-md" required name="pic1" value="<?php if(isset($pic1)&&($pic1!="")) echo $pic1 ;?>" class="form-control input-md" type="file">
             </div>
 
             <label class="col-md-4 control-label" >Ảnh 2</label>
             <div class="col-md-4">
-                <input class="form-control input-md" name="pic2" value="<?php if(isset($pic)&&($pic2!="")) echo $pic2 ;?>" class="form-control input-md" type="file">
+                <input class="form-control input-md" required name="pic2" value="<?php if(isset($pic)&&($pic2!="")) echo $pic2 ;?>" class="form-control input-md" type="file">
             </div>
 
             <label class="col-md-4 control-label" >Ảnh 3</label>
             <div class="col-md-4">
-                <input class="form-control input-md" name="pic3" value="<?php if(isset($pic3)&&($pic3!="")) echo $pic3 ;?>" class="form-control input-md" type="file">
+                <input class="form-control input-md" required name="pic3" value="<?php if(isset($pic3)&&($pic3!="")) echo $pic3 ;?>" class="form-control input-md" type="file">
             </div>
 
             <label class="col-md-4 control-label" >Ảnh 4</label>
             <div class="col-md-4">
-                <input class="form-control input-md" name="pic4" value="<?php if(isset($pic4)&&($pic4!="")) echo $pic4 ;?>" class="form-control input-md" type="file">
+                <input class="form-control input-md" name="pic4" required value="<?php if(isset($pic4)&&($pic4!="")) echo $pic4 ;?>" class="form-control input-md" type="file">
             </div>
 
             <label class="col-md-4 control-label" >Mô tả sản phẩm</label>
             <div class="col-md-4">
-                <input class="form-control input-md" name="des_product" value="<?php if(isset($des_product)&&($des_product!="")) echo $des_product ;?>"" class="form-control input-md"  >
+                <input class="form-control input-md" required name="des_product" value="<?php if(isset($des_product)&&($des_product!="")) echo $des_product ;?>"" class="form-control input-md"  >
             </div>
 
             <label class="col-md-4 control-label" >Giá sản phẩm</label>
             <div class="col-md-4">
-                <input class="form-control input-md" name="price_product" value="<?php if(isset($price_product)&&($price_product!="")) echo $price_product ;?>"" class="form-control input-md"  >
+                <input class="form-control input-md" required name="price_product" value="<?php if(isset($price_product)&&($price_product!="")) echo $price_product ;?>"" class="form-control input-md"  >
             </div>
         </div>
         <div class="form-group">

@@ -35,22 +35,22 @@ if(is_array($category)){
         <div class="form-group">
             <label class="col-md-4 control-label">Mã loại</label>
             <div class="col-md-4">
-                <input class="form-control input-md"  name="id_category" value="<?php if(isset($id_category)&&($id_category>0)) echo $id_category ;?>">
+                <input class="form-control input-md" required  name="id_category" value="<?php if(isset($id_category)&&($id_category>0)) echo $id_category ;?>">
             </div>
 
             <label class="col-md-4 control-label" >Tên loại</label>
             <div class="col-md-4">
-                <input class="form-control input-md" type="text" name="name_category" value="<?php if(isset($name_category)&&($name_category!="")) echo $name_category ;?>">
+                <input class="form-control input-md" type="text" required name="name_category" value="<?php if(isset($name_category)&&($name_category!="")) echo $name_category ;?>">
             </div>
 
             <label class="col-md-4 control-label" >Ảnh loại</label>
             <div class="col-md-4">
-                <input class="form-control input-md" name="pic" placeholder="tên danh mục" class="form-control input-md" type="file">
+                <input class="form-control input-md" name="pic" required placeholder="tên danh mục" class="form-control input-md" type="file">
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-4">
-                <input onclick="myFunction()" type="submit" name="updateCate" value="Cập nhật">
+                <input type="submit" name="updateCate" value="Cập nhật">
                 <input type="reset" value="Nhập lại">
             </div>
         </div>
@@ -61,8 +61,4 @@ if(is_array($category)){
 
 </form>
 </div>
-<script>
-    function myFunction() {
-        confirm("Bạn có chắc là muốn cập nhật không");
-    }
-</script>
+

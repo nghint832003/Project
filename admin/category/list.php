@@ -12,6 +12,7 @@
                 </tr>
                 </thead>
                 <tbody>
+
                 <?php
                     foreach($listCategory as $danhmuc){
                         extract($danhmuc);
@@ -21,12 +22,15 @@
                                 <th scope="row">'.$id_category.'</th>
                                 <td><img style="height: 25px" src="../../upload/category/'.$pic_category.'"></td>
                                 <td>'.$name_category.'</td>                                                       
-                                <td><a href="'.$updateCategory.'"><input type="button" value="Sửa"></a> <a href="'.$deleteCategory.'"><input type="button" value="Xóa"></a></td>
+                                <td><a href="'.$updateCategory.'"><input type="button" value="Sửa"></a><a href="'.$deleteCategory.'"> <input  type="button" value="Xóa"></td></a>
                               </tr>';
+
                     }
+
                 ?>
                 </tbody>
             </table>
         </table>
 </form>
 </div>
+

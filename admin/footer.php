@@ -1,4 +1,4 @@
-<body
+</body>
 </div>
 
 <a class="scroll-to-top rounded" href="#page-top">

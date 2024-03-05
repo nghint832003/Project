@@ -27,7 +27,7 @@
                                 <th scope="row">'.$id_category.'</th>
                                 <th scope="row">'.$name_product.'</th>
                                 <td><img style="height: 15px" src="/upload/product/'.$pic1.'"></td>
-                                <th scope="row">'.$des_product.'</th>
+                                <th scope="row" style="width: 380px">'.$des_product.'</th>
                                 <th scope="row">'.$view_product.'</th>
                                 <th scope="row">'.$price_product.'</th>                                                    
                                 <td><a href="'.$listProductDetail.'"><input type="button" name="listDetailPro" value="Chi tiết"></a>

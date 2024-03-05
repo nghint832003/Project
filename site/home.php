@@ -16,7 +16,7 @@
 //                    </div>';
                 echo '
                 <div class="block">
-                    <a href="'.$link.'"><img src="../upload/product/'.$pic1.'" class="" alt=""></a>
+                    <a href="'.$link.'"><img src="./upload/product/'.$pic1.'" class="" alt=""></a>
                     <div class="hidden ">
                         <div class="grid grid-cols-2 gap-1 ">
                             <div class="bg-red-600 flex px-3 py-2">

@@ -28,8 +28,8 @@
 //        }
 //        ?>
 <!--    </h2>-->
-<section class="h-screen">
-    <div class="container px-6 py-12 h-full">
+<section class="h-screen" >
+    <div class="container px-6 py-12 h-full" style="margin-bottom: 135px;">
         <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
             <div class="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
                 <img
@@ -40,11 +40,11 @@
             </div>
 
             <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
-                <?php
-                if(isset($thongbao)&&($thongbao!="")){
-                    echo $thongbao;
-                }
-                ?>
+                <p style="color:green;"><?php
+                    if(isset($thongbao)&&($thongbao!="")){
+                        echo $thongbao;
+                    }
+                    ?></p>
                 <form method="post" enctype="multipart/form-data" action="../../../fashinista/index.php?act=signup">
                     <div class="mb-6">
                         <label>Họ và tên</label>

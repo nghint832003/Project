@@ -29,6 +29,7 @@ function delete_products_detail($id_product)
 
 function delete_product_detail($id_pd){
     $sql = "delete from product_detail where id_pd=".$id_pd;
+    pdo_query($sql);
 }
 
 function loadall_product()
@@ -74,11 +75,30 @@ function loadone_product_detail($id_product)
     return $sp;
 }
 
+function loadOneProductDetail($id_pd){
+    $sql = "select * from product_detail where id_pd=".$id_pd;
+    $productDetail = pdo_query_one($sql);
+    return $productDetail;
+}
+
 function load_products_category($id_product, $id_category)
 {
     $sql = "select * from products where id_category='" . $id_category . "' AND id_product <> " . $id_product;
     $listProductCategory = pdo_query($sql);
     return $listProductCategory;
+}
+
+function productCategory($id_category){
+    $sql = "select * from products where id_category =".$id_category;
+    $listProduct = pdo_query($sql);
+    return $listProduct;
+}
+
+function productName($name){
+    $sql = "select * from products where name_product like '%".$name."%'";
+
+    $listProduct = pdo_query($sql);
+    return $listProduct;
 }
 
 function update_product($id_product,$name_product, $id_category, $pic1, $pic2, $pic3, $pic4, $des_product,$price_product)
@@ -95,6 +115,11 @@ function update_product($id_product,$name_product, $id_category, $pic1, $pic2, $
 function update_product_detail($id_pd,$id_product,$color_product,$size_product,$quantity_product){
     $sql = "update product_detail
             set id_product='".$id_product."',color_product='".$color_product."',size_product='".$size_product."',quantity_product='".$quantity_product."' where id_pd = ". $id_pd;
+    pdo_execute($sql);
+}
+
+function view($id_product){
+    $sql = "update products set view_product = view_product +1 where id_product =".$id_product;
     pdo_execute($sql);
 }
 ?>

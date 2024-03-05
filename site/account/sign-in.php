@@ -17,11 +17,11 @@
                 />
             </div>
             <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
-                <?php
-                if(isset($thongbao)&&($thongbao!="")){
-                    echo $thongbao;
-                }
-                ?>
+                <p style="color:red;"><?php
+                    if(isset($thongbao)&&($thongbao!="")){
+                        echo $thongbao;
+                    }
+                    ?></p>
                 <form method="post" enctype="application/x-www-form-urlencoded" action="../index.php?act=signin">
                     <!-- Email input -->
                     <div class="mb-6">

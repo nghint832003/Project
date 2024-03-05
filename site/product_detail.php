@@ -1,21 +1,21 @@
 <div class="container">
-    <div class="sanpham">
-        <form method="post" enctype="multipart/form-data" action="../../fashinista/index.php?act=cart">
+    <div class="sanpham" >
+        <form method="post" enctype="multipart/form-data" action="/index.php?act=cart" >
         <div class="sanpham_left">
-            <div class="sanpham_left_top">
+            <div class="sanpham_left_top" >
                 <?php
                 extract($product)
 
                 ?>
-                <a href="#"><img id="topmain" src="../upload/product/<?= $pic1?>" alt=""></a>
+                <a href="#"><img  id="topmain" src="./upload/product/<?= $pic1?>" alt=""></a>
                 <input type="hidden" value="<?= $id_product?>" name="id_product">
                 <input type="hidden" value="<?= $pic1?>" name="pic1">
             </div>
             <div class="sanpham_left_bottom">
-                <img class="img" id="demo" onclick="function1();" src="../upload/product/<?= $pic1?>" alt="">
-                <img class="img" id="demo1"  onclick="function2();" src="../upload/product/<?= $pic2?>" >
-                <img class="img" id="demo2"  onclick="function3();" src="\../upload/product/<?= $pic3?>" alt="">
-                <img class="img" id="demo3"  onclick="function4();" src="../upload/product/<?= $pic4?>" alt="">
+                <img class="img" id="demo" onclick="function1();" src="./upload/product/<?= $pic1?>" alt="">
+                <img class="img" id="demo1"  onclick="function2();" src="./upload/product/<?= $pic2?>" >
+                <img class="img" id="demo2"  onclick="function3();" src="./upload/product/<?= $pic3?>" alt="">
+                <img class="img" id="demo3"  onclick="function4();" src="./upload/product/<?= $pic4?>" alt="">
             </div>
         </div>
         <div class="sanpham_right">
@@ -30,14 +30,17 @@
                     <i class="fa fa-star" aria-hidden="true"></i>
                 </div>
             </div>
+            <div class="view">
+                <p>Số lượt xem (<?php echo $view_product?>)</p>
+            </div>
             <div class="sanpham_right_price">
-                <h2><?= $price_product ?></h2>
+                <h2><?= $price_product ?> VNĐ</h2>
                 <input type="hidden" name="price_product" value="<?= $price_product?>">
             </div>
             <div class="sanpham_right_main">
 
-                <div class="sanpham_right_main_text01">
-                    <h2><?= $des_product ?></h2>
+                <div class="sanpham_right_main_text01" style="font-size: 25px">
+                    <?= $des_product ?>
                 </div>
             </div>
             <div class="sanpham_right_bottom">
@@ -49,7 +52,7 @@
                         <?php
                         foreach ($product_detail as $detail){
                             extract($detail); ?>
-                                <input type="radio" id="<?= $color_product?>" name="color_product" value="<?= $color_product?>">
+                                <input type="radio" required id="<?= $color_product?>" name="color_product" value="<?= $color_product?>">
                                 <label for="<?= $color_product?>"><?= $color_product?></label>
                         <?php
                         }
@@ -63,7 +66,7 @@
                             <?php
                             foreach ($product_detail as $detail){
                                 extract($detail); ?>
-                                <input type="radio" id="<?= $size_product?>" name="size_product" value="<?= $size_product?>">
+                                <input type="radio" id="<?= $size_product?>" required name="size_product" value="<?= $size_product?>">
                                 <label for="<?= $size_product?>"><?= $size_product?></label>
                                 <?php
                             }
@@ -75,11 +78,11 @@
                     <h2>Số lượng </h2>
                     <input type="number" name="quantity" value="1" min="1">
                 </div>
-                <div class="sanpham_right_bottom_dathang">
+                <div class="sanpham_right_bottom_dathang" style="background-color: red">
 
                         <input class="sanpham_right_bottom_dathang_dathang_nek" name="addtoCart" type="submit" value="THÊM VÀO GIỎ HÀNG">
 
-                    <a href=""> <div class="sanpham_right_bottom_dathang_dathang_nekk"><h2>Mua tại cửa hàng FASHIONISTA </h2></div></a>
+<!--                    <a href=""> <div class="sanpham_right_bottom_dathang_dathang_nekk"><h2>Mua tại cửa hàng FASHIONISTA </h2></div></a>-->
                 </div>
             </div>
         </div>
@@ -95,11 +98,11 @@
                         echo '
                             <div class="sp01">
                                 <div class="imgnek">
-                                    <a href=""> <img src="../upload/product/'.$pic1.'"alt=""></a>
+                                    <a href="index.php?act=productDetail&id_product='.$id_product.'"> <img src="../upload/product/'.$pic1.'"alt=""></a>
                                 </div>
                                 <a href=""><h2 class="text">'.$name_product.'</h2></a>
                                 <h3>'.$price_product.'đ</h3>
-                                <button type="button" class="btn btn-outline-primary">Mua hàng</button>
+                                <a href="index.php?act=productDetail&id_product='.$id_product.'"><input class="thanktoan_oder" style="margin-right: 15px;background-color: #1cc88a;padding: 5px 10px;border-radius: 5px;color:#FFFFFF;" name="oder" type="submit" value="Mua hàng"></a>
                             </div>
                         ';
                     }
@@ -109,7 +112,11 @@
         </div>
         <div class="binhluan">
             <div class="hienthibl">
-                <h4 class="textbl">Bình luận(0)</h4>
+                <?php
+                    $count_comment = count_comment($_GET['id_product']);
+                    extract($count_comment);
+                ?>
+                <h4 class="textbl">Bình luận(<?= $count_comment[0][0]?>)</h4>
                 <div class="box">
                 <?php
                     $listComment = loadall_comment($_GET['id_product']);
@@ -140,9 +147,10 @@
                 <form action="../../fashinista/index.php?act=sendComment" method="post" enctype="application/x-www-form-urlencoded">
                     <input type="hidden" name="id_customer" value="<?=$_SESSION['user']['id_customer'] ?>">
                     <input type="hidden" name="id_product" value="<?= $_GET['id_product']?>">
-                    <textarea style="width: 100%;" name="content_comment" id="" cols="" rows="3" placeholder="Bình luận ..."></textarea>
-                    <input type="submit" name="sendComment"  value="Gửi bình luận">
+                    <textarea style="width: 100%;border: 1px solid black" name="content_comment" id="" cols="" rows="3" placeholder="Bình luận ..."></textarea>
+                    <input class="thanktoan_oder" style="margin-right: 15px;background-color: #1cc88a;padding: 5px 10px;border-radius: 5px;color:#FFFFFF;" name="sendComment" type="submit" value="Gửi bình luận">
                 </form>
             </div>
         </div>
     </div>
+</div>
